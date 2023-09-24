@@ -8,6 +8,7 @@ mongoose.connect(process.env.MONGO_URL).then(() => {
 });
 
 const moviesRouter = require("./routes/movies");
+const userRouter = require("./routes/user");
 
 console.log({ PORT });
 const app = express();
@@ -28,3 +29,4 @@ const logger = (req, res, next) => {
 app.use(logger);
 app.use(express.json());
 app.use("/api/movies", moviesRouter);
+app.use("/api/users", userRouter);
