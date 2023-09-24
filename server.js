@@ -1,5 +1,8 @@
+require("dotenv").config();
 const express = require("express");
-const PORT = 8080;
+const PORT = process.env.PORT;
+
+console.log({ PORT });
 const app = express();
 
 const movies = [
