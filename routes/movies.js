@@ -22,23 +22,23 @@ const movies = [
   },
 ];
 
-router.get("/api/movies", (req, res) => {
+router.get("/", (req, res) => {
   res.send(movies);
 });
 
-router.get("/api/movies/:id", (req, res) => {
+router.get("/:id", (req, res) => {
   const id = req.params.id;
   res.send(movies[parseInt(id) - 1]);
 });
 
-router.post("/api/movies", (req, res) => {
+router.post("/", (req, res) => {
   const movie = req.body;
   movie.id = movies.length + 1;
   movies.push(movie);
   res.send({ success: true });
 });
 
-router.put("/api/movies/:id", (req, res) => {
+router.put("/:id", (req, res) => {
   const id = req.params.id;
   const body = req.body;
   body.id = id;
@@ -46,7 +46,7 @@ router.put("/api/movies/:id", (req, res) => {
   res.send({ success: true });
 });
 
-router.delete("/api/movies/:id", (req, res) => {
+router.delete("/:id", (req, res) => {
   const id = req.params.id;
   movies.splice(id - 1, 1);
   res.send({ success: true });

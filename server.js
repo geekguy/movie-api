@@ -22,4 +22,4 @@ const logger = (req, res, next) => {
 
 app.use(logger);
 app.use(express.json());
-app.use(moviesRouter);
+app.use("/api/movies", moviesRouter);
